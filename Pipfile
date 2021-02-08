@@ -9,6 +9,7 @@ graphene-django = "*"
 django-graphiql = "*"
 django-filter = "*"
 pylint-django = "*"
+django-cors-headers = "*"
 
 [dev-packages]
 pylint = "*"
