@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
+import django_heroku
 import os
 from pathlib import Path
 from dotenv import load_dotenv
@@ -23,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '%4nsjly-sjbd=*@ln+o=l9g#y&(!j)#9zl9)9^^2glvod4uwy)'
+SECRET_KEY = os.getenv("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
@@ -129,3 +130,5 @@ STATIC_URL = '/static/'
 CORS_ORIGIN_WHITELIST = ['http://localhost:8080']
 
 GRAPHENE = {'SCHEMA': 'project.schema.schema'}
+
+django_heroku.settings(locals())
